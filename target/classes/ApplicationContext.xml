@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   					   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="SonyHead" class="sony.HeadSony" />
+	<bean id="SonyHand" class="sony.HandSony" />
+	<bean id="SonyLeag" class="sony.LeagSony" />
+
+	<bean id="ToshibaHead" class="toshiba.HeadToshiba" />
+	<bean id="ToshibaHand" class="toshiba.HandToshiba" />
+	<bean id="ToshibaLeag" class="toshiba.LeagToshiba" />
+
+	<bean id="T1000" class="robotics.T1000">
+		<constructor-arg ref="SonyHead" index="0" />
+		<constructor-arg ref="ToshibaHand" index="1" />
+		<constructor-arg ref="ToshibaLeag" index="2" />
+		<property name="color" value="Green" />
+		<property name="age" value="12" />
+		<property name="soundEnable" value="true" />
+	</bean>
+
+	<bean id="T1000Empty" class="robotics.T1000">
+		<property name="head" ref="SonyHead" />
+		<property name="hand" ref="SonyHand" />
+		<property name="leag" ref="SonyLeag" />
+
+		<property name="color" value="Red" />
+		<property name="age" value="25" />
+		<property name="soundEnable" value="true" />
+	</bean>
+</beans>
